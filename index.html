@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electricity Bill Payment</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+   <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+    <!-- Page 1: Select Your Electricity Board -->
+    <div id="page1" class="page active">
+        <div class="header">
+            <button class="previous-button"><i class="fas fa-arrow-left"></i></button>
+            <h3 class="header-heading "> Electricity Bill </h3>
+            <div class="location">
+                <div>
+                </div>
+                <p class="selected-board"></p>                
+            </div>
+        </div >
+        <div class="input">
+        <input class="input bar " id="search" type="text" placeholder="search your boards" >
+       
+    </div>
+    <div class="board_sel">
+        <div>
+            <nav class="sel_head">
+                <ul>
+                    <li> 
+                        <a> Select Your Electricity Board </a>
+                    </li>
+                   
+                </ul>
+            </nav>
+            <div class="sel">
+                <ul> 
+                    <li  class="board_list"> 
+                        <img class="board_logo " src="tneb-logo.png">
+                        
+                        <a> Tamil Nadu Electricity Board</a>
+                        
+                    </li>
+                    <li class="board_list">
+                        <img class="board_logo" src="adani-electricity.png">
+                        <a> Adani Elecricity</a>
+                    </li>
+                    <li class="board_list">
+                        <img class="board_logo" src="AVVNL.png" >
+                        <a> Ajmer Vidyut(AVVNL)</a>
+                    </li>
+                    <li class="board_list">
+                        <img class="board_logo" src="BESCOM.png" alt="">
+                        <a> BESCOM-Bangalore Elecricity</a>
+                    </li>
+                    <li class="board_list">
+                        <img class="board_logo" src="CESC_Limited_Logo.svg.png" alt="">
+                        <a>CESC Kolkata</a>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+
+    </div> 
+
+
+        <button class="continue_button" onclick="nextPage('page1', 'page2')">Continue</button> 
+        <div class="security">
+            <p>Secured By Bharat Billpay <img class="security logo" src="Bharat_BillPay_logo.svg.png"></p>           
+        </div>
+    </div>
+
+    <!-- Page 2: Enter Consumer Number -->
+
+
+    <div id="page2" class="page">
+        <div class=" header header1">
+            <button class="previous-button button1" onclick="previousPage('page2','page1')"><i class="fas fa-arrow-left"></i></button>
+            <h3 class="header-heading heading1"> Electricity Bill </h3>
+            <div class="board">
+
+                <span  class="selected_board"> 
+                    <img class="board_logo " src="tneb-logo.png">                    
+                    <a> Tamil Nadu Electricity Board</a>                    
+                </span>
+            </div>
+
+
+        <div>
+        <div>
+            <input  class="bar" required type="number" id="consumerNumber" placeholder="Consumer Number" oninput="validateInput()">
+            <div id="error" style="color: red;"></div>
+        </div>  
+        <button class="continue_button" onclick="nextPage('page2', 'page3')">Continue</button>
+        <div class="security">
+            <p>Secured By Bharat Billpay <img class="security logo" src="Bharat_BillPay_logo.svg.png"></p>
+        </div>
+    </div>
+
+    <!-- Page 3: Review Consumer Information -->
+    <div id="page3" class="page">
+        <button class="previous-button"><img src="left-arrow.png"</button>
+        <h1>Review Consumer Information</h1>
+        <p>Electricity Board: <span id="reviewBoard"></span></p>
+        <p>Consumer Number: <span id="reviewConsumerNumber"></span></p>
+        <button onclick="nextPage('page3', 'page4')">Confirm</button>
+        <div class="security">
+            <p>Secured By Bharat Billpay <img class="security logo" src="Bharat_BillPay_logo.svg.png"></p>
+        </div>
+    </div>
+
+    <!-- Page 4: Payment Method Selection -->
+    <div id="page4" class="page">
+        <h1>Payment Method Selection</h1>
+        <!-- Add payment method selection options here -->
+        <button onclick="nextPage('page4', 'page5')">Continue</button>
+        <div class="security">
+            <p>Secured By Bharat Billpay<img class="security logo" src="Bharat_BillPay_logo.svg.png"></p>
+        </div>
+    </div>
+
+    <!-- Page 5: Payment Details -->
+    <div id="page5" class="page">
+        <h1>Payment Details</h1>
+        <!-- Add payment details input fields here -->
+        <button onclick="nextPage('page5', 'page6')">Continue</button>
+        <div class="security">
+            <p>Secured By Bharat Billpay <img class="security logo" src="Bharat_BillPay_logo.svg.png"></p>
+        </div>
+    </div>
+
+    <!-- Page 6: Confirm Payment -->
+    <div id="page6" class="page">
+        <h1>Confirm Payment</h1>
+        <!-- Display summary of user's choices here -->
+        <button onclick="nextPage('page6', 'page7')">Confirm Payment</button>
+    </div>
+
+    <!-- Page 7: Payment Processing -->
+    <div id="page7" class="page">
+        <h1>Payment Processing</h1>
+        <!-- Display loading or processing message here -->
+    </div>
+
+    <!-- Page 8: Payment Success/Failure -->
+    <div id="page8" class="page">
+        <!-- Display success or failure message here -->
+    </div>
+
+    <script src="myscript.js"></script>
+</body>
+</html>
+
